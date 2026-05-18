@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuraFlow - AI Workflow Automation</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      background: #050816;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #7c3aed, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-bg {
+      background: radial-gradient(circle at top right, rgba(124,58,237,0.3), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(59,130,246,0.2), transparent 30%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="fixed w-full top-0 z-50 glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <div>
+        <h1 class="text-2xl font-bold gradient-text">NeuraFlow</h1>
+        <p class="text-xs text-gray-400">AI-Powered Workflow Automation</p>
+      </div>
+
+      <nav class="hidden md:flex gap-8 text-gray-300">
+        <a href="#home" class="hover:text-purple-400">Home</a>
+        <a href="#features" class="hover:text-purple-400">Features</a>
+        <a href="#dashboard" class="hover:text-purple-400">Dashboard</a>
+        <a href="#pricing" class="hover:text-purple-400">Pricing</a>
+        <a href="#contact" class="hover:text-purple-400">Contact</a>
+      </nav>
+
+      <button class="bg-purple-600 hover:bg-purple-700 px-5 py-2 rounded-xl">
+        Get Started
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section id="home" class="hero-bg min-h-screen flex items-center pt-28">
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-center">
+
+      <div>
+        <p class="inline-block px-4 py-2 rounded-full glass text-sm text-purple-300 mb-5">
+          AI • Smart • Automated
+        </p>
+
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+          Automate Your
+          <span class="gradient-text">Business</span>
+          With AI
+        </h2>
+
+        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+          NeuraFlow helps businesses automate workflows, improve productivity,
+          collaborate with teams, and scale operations using AI technology.
+        </p>
+
+        <div class="flex gap-4 flex-wrap">
+          <button class="bg-purple-600 hover:bg-purple-700 px-7 py-4 rounded-2xl text-lg font-semibold">
+            Start Free Trial
+          </button>
+
+          <button class="glass px-7 py-4 rounded-2xl text-lg">
+            Book Demo
+          </button>
+        </div>
+
+      </div>
+
+
+      <!-- Dashboard Mockup -->
+      <div class="glass rounded-3xl p-6 shadow-2xl">
+
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-bold">Analytics Dashboard</h3>
+          <span class="text-green-400">Live</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+
+          <div class="glass p-5 rounded-2xl">
+            <h4 class="text-gray-400">Total Tasks</h4>
+            <p class="text-3xl font-bold mt-2">2,543</p>
+          </div>
+
+          <div class="glass p-5 rounded-2xl">
+            <h4 class="text-gray-400">Automation</h4>
+            <p class="text-3xl font-bold mt-2">93%</p>
+          </div>
+
+        </div>
+
+        <canvas id="analyticsChart" height="120"></canvas>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Features -->
+  <section id="features" class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-5">
+          Powerful <span class="gradient-text">Features</span>
+        </h2>
+
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Everything you need to automate, collaborate, and grow your business.
+        </p>
+      </div>
+
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-300">
+          <div class="text-5xl mb-4">🤖</div>
+          <h3 class="text-2xl font-bold mb-3">AI Chat Assistant</h3>
+          <p class="text-gray-400">
+            Intelligent chatbot powered by AI for customer support and automation.
+          </p>
+        </div>
+
+
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-300">
+          <div class="text-5xl mb-4">⚡</div>
+          <h3 class="text-2xl font-bold mb-3">Task Automation</h3>
+          <p class="text-gray-400">
+            Automate repetitive tasks and save hours of manual work.
+          </p>
+        </div>
+
+
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-300">
+          <div class="text-5xl mb-4">👥</div>
+          <h3 class="text-2xl font-bold mb-3">Team Collaboration</h3>
+          <p class="text-gray-400">
+            Collaborate with your team in real-time and improve productivity.
+          </p>
+        </div>
+
+
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-300">
+          <div class="text-5xl mb-4">📊</div>
+          <h3 class="text-2xl font-bold mb-3">Smart Analytics</h3>
+          <p class="text-gray-400">
+            Beautiful charts and insights to track business growth.
+          </p>
+        </div>
+
+
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-300">
+          <div class="text-5xl mb-4">📧</div>
+          <h3 class="text-2xl font-bold mb-3">Email Automation</h3>
+          <p class="text-gray-400">
+            Send automated emails, campaigns, and notifications instantly.
+          </p>
+        </div>
+
+
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-300">
+          <div class="text-5xl mb-4">☁️</div>
+          <h3 class="text-2xl font-bold mb-3">Cloud Storage</h3>
+          <p class="text-gray-400">
+            Store and manage files securely in the cloud.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="py-28 bg-[#0b1020]">
+
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+
+      <div>
+        <h2 class="text-5xl font-bold mb-6">
+          Smart Dashboard
+          <span class="gradient-text">For Teams</span>
+        </h2>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+          Track tasks, manage automation, collaborate with teams,
+          and monitor analytics from one powerful dashboard.
+        </p>
+
+        <ul class="space-y-4 text-gray-300">
+          <li>✔ Real-time analytics</li>
+          <li>✔ AI workflow management</li>
+          <li>✔ CRM integration</li>
+          <li>✔ Team collaboration tools</li>
+        </ul>
+      </div>
+
+      <div class="glass p-8 rounded-3xl">
+        <canvas id="dashboardChart"></canvas>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+      <h2 class="text-5xl font-bold mb-5">
+        Flexible <span class="gradient-text">Pricing</span>
+      </h2>
+
+      <p class="text-gray-400 mb-16">
+        Choose the perfect plan for your business.
+      </p>
+
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Basic -->
+        <div class="glass p-10 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4">Starter</h3>
+          <p class="text-5xl font-bold mb-6">₹499</p>
+          <ul class="space-y-4 text-gray-300 mb-8">
+            <li>✔ AI Assistant</li>
+            <li>✔ Basic Analytics</li>
+            <li>✔ Email Support</li>
+          </ul>
+          <button class="w-full bg-purple-600 py-4 rounded-2xl">
+            Choose Plan
+          </button>
+        </div>
+
+
+        <!-- Pro -->
+        <div class="bg-gradient-to-b from-purple-700 to-blue-700 p-[2px] rounded-3xl">
+          <div class="bg-[#0b1020] rounded-3xl p-10 h-full">
+            <h3 class="text-2xl font-bold mb-4">Pro</h3>
+            <p class="text-5xl font-bold mb-6">₹1499</p>
+            <ul class="space-y-4 text-gray-300 mb-8">
+              <li>✔ Full Automation</li>
+              <li>✔ AI Reports</li>
+              <li>✔ CRM Integration</li>
+              <li>✔ Team Collaboration</li>
+            </ul>
+            <button class="w-full bg-purple-600 py-4 rounded-2xl">
+              Most Popular
+            </button>
+          </div>
+        </div>
+
+
+        <!-- Enterprise -->
+        <div class="glass p-10 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+          <p class="text-5xl font-bold mb-6">Custom</p>
+          <ul class="space-y-4 text-gray-300 mb-8">
+            <li>✔ Unlimited Features</li>
+            <li>✔ Dedicated Support</li>
+            <li>✔ API Access</li>
+          </ul>
+          <button class="w-full bg-purple-600 py-4 rounded-2xl">
+            Contact Sales
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="py-28 bg-[#0b1020]">
+
+    <div class="max-w-3xl mx-auto px-6 text-center">
+
+      <h2 class="text-5xl font-bold mb-6">
+        Ready To Scale With AI?
+      </h2>
+
+      <p class="text-gray-400 mb-10">
+        Start automating your business workflows today.
+      </p>
+
+
+      <form class="glass p-8 rounded-3xl space-y-6">
+
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="w-full p-4 rounded-xl bg-[#111827] border border-gray-700"
+        />
+
+        <input
+          type="email"
+          placeholder="Your Email"
+          class="w-full p-4 rounded-xl bg-[#111827] border border-gray-700"
+        />
+
+        <textarea
+          rows="5"
+          placeholder="Your Message"
+          class="w-full p-4 rounded-xl bg-[#111827] border border-gray-700"
+        ></textarea>
+
+        <button class="w-full bg-purple-600 hover:bg-purple-700 py-4 rounded-2xl text-lg">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-gray-800 text-center text-gray-500">
+    © 2026 NeuraFlow. All Rights Reserved.
+  </footer>
+
+
+  <!-- Scripts -->
+  <script>
+
+    // Hero Chart
+    const ctx = document.getElementById('analyticsChart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Automation Growth',
+          data: [12, 19, 15, 28, 35, 50],
+          borderColor: '#8b5cf6',
+          backgroundColor: 'rgba(139,92,246,0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: 'white'
+            }
+          },
+          y: {
+            ticks: {
+              color: 'white'
+            }
+          }
+        }
+      }
+    });
+
+
+    // Dashboard Chart
+    const dashboard = document.getElementById('dashboardChart');
+
+    new Chart(dashboard, {
+      type: 'bar',
+      data: {
+        labels: ['AI', 'CRM', 'Tasks', 'Storage', 'Reports'],
+        datasets: [{
+          label: 'Usage',
+          data: [90, 70, 95, 60, 85],
+          backgroundColor: [
+            '#7c3aed',
+            '#3b82f6',
+            '#9333ea',
+            '#06b6d4',
+            '#8b5cf6'
+          ]
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: 'white'
+            }
+          },
+          y: {
+            ticks: {
+              color: 'white'
+            }
+          }
+        }
+      }
+    });
+
+  </script>
+
+</body>
+</html>
